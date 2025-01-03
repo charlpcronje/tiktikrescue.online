@@ -1,0 +1,231 @@
+<html><head><base href="/" />
+    <meta charset="UTF-8">
+    <title>TikTok Rescue - Bulk Download Your TikTok Videos</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #010101, #1a1a1a);
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    .header {
+        background: rgba(0,0,0,0.8);
+        padding: 1rem;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #fe2c55, #25f4ee);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+    }
+    
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+    
+    .hero-content {
+        flex: 1;
+        padding-right: 2rem;
+    }
+    
+    .demo-container {
+        flex: 1;
+        position: relative;
+    }
+    
+    .phone-mockup {
+        width: 300px;
+        height: 600px;
+        background: #000;
+        border-radius: 40px;
+        border: 8px solid #333;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .screen-content {
+        padding: 20px;
+    }
+    
+    .download-btn {
+        background: linear-gradient(45deg, #fe2c55, #25f4ee);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin: 1rem 0;
+    }
+    
+    .download-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    .features {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .feature-card {
+        background: rgba(255,255,255,0.1);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .floating-videos {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    </style>
+    </head>
+    <body>
+        <header class="header">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <img src="logo.png" alt="Logo" style="height: 50px; margin-right: 2rem;">
+                <nav style="display: flex; gap: 1.5rem;">
+                    <a href="/" style="color: #fff; text-decoration: none;" 
+                       onmouseover="this.style.textDecoration='underline'" 
+                       onmouseout="this.style.textDecoration='none'">Home</a>
+                    <a href="#download" style="color: #fff; text-decoration: none;" 
+                       onmouseover="this.style.textDecoration='underline'" 
+                       onmouseout="this.style.textDecoration='none'">Download</a>
+                    <a href="#documentation" style="color: #fff; text-decoration: none;" 
+                       onmouseover="this.style.textDecoration='underline'" 
+                       onmouseout="this.style.textDecoration='none'">Documentation</a>
+                    <a href="https://youtube.com" target="_blank" style="color: #fff; text-decoration: none;" 
+                       onmouseover="this.style.textDecoration='underline'" 
+                       onmouseout="this.style.textDecoration='none'">See on YouTube</a>
+                </nav>
+            </div>
+        </header>
+        
+    
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Download Your TikTok Videos in Bulk</h2>
+                <p>Never lose your content again. TikTok Rescue helps you download and backup all your TikTok videos with just one click.</p>
+                <button class="download-btn" onclick="showDownloadPrompt()">Download TikTok Rescue</button>
+            </div>
+            
+            <div class="demo-container">
+                <div class="phone-mockup">
+                    <div class="screen-content">
+                        <svg class="floating-videos" width="200" height="200" viewBox="0 0 200 200">
+                            <rect x="40" y="40" width="50" height="80" fill="#fe2c55" rx="10"/>
+                            <rect x="100" y="60" width="50" height="80" fill="#25f4ee" rx="10"/>
+                            <rect x="70" y="80" width="50" height="80" fill="#fe2c55" rx="10"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="features">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24">
+                    <path fill="#fe2c55" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+                <h3>Bulk Download</h3>
+                <p>Download all your videos at once with just one click</p>
+            </div>
+            
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24">
+                    <path fill="#25f4ee" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+                <h3>Secure Backup</h3>
+                <p>Keep your content safe with automatic cloud backup</p>
+            </div>
+            
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24">
+                    <path fill="#fe2c55" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                </svg>
+                <h3>Easy Organization</h3>
+                <p>Organize your downloads by date, caption, or custom folders</p>
+            </div>
+        </section>
+    
+    <script>
+    function showDownloadPrompt() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        let downloadLink = "https://tiktokrescue.com/download";
+        
+        if (userAgent.includes("android")) {
+            downloadLink = "https://play.google.com/store/apps/details?id=com.tiktokrescue";
+        } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
+            downloadLink = "https://apps.apple.com/app/tiktokrescue";
+        }
+        
+        const confirmation = confirm("Download TikTok Rescue for your device?");
+        if (confirmation) {
+            window.location.href = downloadLink;
+        }
+    }
+    
+    // Add smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Add parallax effect to floating videos
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const videos = document.querySelector('.floating-videos');
+        videos.style.transform = `translate(-50%, -${50 + scrolled * 0.1}%)`;
+    });
+    </script>
+    <footer style="position: fixed; bottom: 0; width: 100%; text-align: center; background: rgba(0, 0, 0, 0.8); padding: 1rem 0;">
+        <a href="/privacy-policy.html" style="color: #fff; text-decoration: none; margin: 0 1rem;" 
+           onmouseover="this.style.textDecoration='underline'" 
+           onmouseout="this.style.textDecoration='none'">Privacy Policy</a>
+        <a href="/terms-of-service.html" style="color: #fff; text-decoration: none; margin: 0 1rem;" 
+           onmouseover="this.style.textDecoration='underline'" 
+           onmouseout="this.style.textDecoration='none'">Terms of Service</a>
+    </footer>
+    
+    </body></html>

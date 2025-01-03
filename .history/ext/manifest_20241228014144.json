@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "TikTok Rescue",
+    "version": "1.0.0",
+    "description": "A Chrome extension to help you manage your TikTok experience.",
+    "action": {
+      "default_popup": "popup.html" // Optional: For a basic popup (can be removed if only using the sidebar)
+    },
+    "devtools_page": "devtools.html",
+    "permissions": [
+      "storage",
+      "notifications",
+      "scripting"
+    ],
+    "host_permissions": [
+      "*://*.tiktok.com/*" // Example: Adjust to the specific domains you target
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.tiktok.com/*"], // Target domains for the page icon
+        "js": ["content-script.js"]
+      }
+    ],
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
