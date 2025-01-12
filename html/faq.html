@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequently Asked Questions - TikTok Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'tiktok-pink': '#ff2e57',
+              'tiktok-blue': '#5cfffa',
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        .faq-header::after {
+            content: '+'; /* Default symbol for closed dropdown */
+            float: right; /* Aligns it to the right */
+            transition: transform 0.2s ease; /* Smooth transition for rotation */
+        }
+
+        .faq-header.active::after {
+            content: '-'; /* Symbol when open */
+            transform: rotate(180deg); /* Rotate to show "open" state */
+        }
+    </style>
+</head>
+<body class="bg-[#2e2b2e] text-white">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white">
+            <!-- Unique Content for Each Page -->
+                
+             <section id="faq" class="py-20 bg-[#3a373a]">
+                <div class="container mx-auto px-4 mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                    <div class="max-w-3xl mx-auto space-y-4">
+                        
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                <h3 class="text-xl font-bold mb-2">How do I install TikTok Rescue?</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                <p>Just follow the download links. Download the Chrome extension or app in playstore and follow the instructions to add it to your browser. It’s quick and easy!</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                <h3 class="text-xl font-bold mb-2">TikTok Rescue allows you to:</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                <ul class="list-none pl-0">
+                                    <li class="flex items-center mb-2">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Download your TikTok videos directly to your device.</span>
+                                    </li>
+                                    <li class="flex items-center mb-2">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Upload your videos to YouTube as private videos.</span>
+                                    </li>
+                                    <li class="flex items-center mb-2">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Manage your TikTok and YouTube content easily from one platform.</span>
+                                    </li>
+                                </ul>
+                                <span>Download the TikTokRescue application or Chrome extension.</span>
+                            </div>
+                        </div>
+
+                         <!-- FAQ Item 3 -->
+                        <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                <h3 class="text-xl font-bold mb-2">Is TikTok Rescue free to use?</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                 <p>TikTokRescue is free for downloading up to 3 TikTok videos. If you wish to download more, you can easily upgrade to by making a small payment of $4.99.</p>
+                            </div>
+                        </div>
+
+                         <!-- FAQ Item 4 -->
+                        <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                <h3 class="text-xl font-bold mb-2">How do I link my TikTok account to TikTokRescue?</h3>
+                            </button>
+                             <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                 <p>Once you’ve installed TikTok Rescue, go to the settings page where you can securely link your TikTok account by logging in with your TikTok credentials. We ensure all data is encrypted and securely handled.</p>
+                             </div>
+                        </div>
+
+                         <!-- FAQ Item 5 -->
+                         <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                               <h3 class="text-xl font-bold mb-2">How do I upload videos to YouTube using TikTokRescue?</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                               <p>After downloading your TikTok videos, go to the ‘Uploads’ tab in the extension and select the videos you want to transfer to YouTube. You can set them as private so that only you can view them unless you decide to share further.</p>
+                            </div>
+                         </div>
+
+                          <!-- FAQ Item 6 -->
+                        <div class="faq-item">
+                             <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                 <h3 class="text-xl font-bold mb-2">Can I use TikTok Rescue on any browser?</h3>
+                             </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                 <p>Currently, TikTok Rescue is available as a Chrome extension. We plan to expand to other browsers in the future. Stay tuned for updates!</p>
+                            </div>
+                         </div>
+
+                          <!-- FAQ Item 7 -->
+                        <div class="faq-item">
+                            <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                              <h3 class="text-xl font-bold mb-2">What happens if I face issues with the extension?</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                <p>If you encounter any issues or errors, please contact our support team by submitting a ticket through the support section in the extension. We are here to help resolve any problems as quickly as possible.</p>
+                            </div>
+                         </div>
+
+                          <!-- FAQ Item 8 -->
+                         <div class="faq-item">
+                             <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                 <h3 class="text-xl font-bold mb-2">How secure is my data with TikTok Rescue?</h3>
+                             </button>
+                             <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                  <p>At TikTokRescue, we prioritize your privacy and security. All communications are encrypted, and we never store your TikTok or YouTube login credentials.</p>
+                             </div>
+                          </div>
+
+                          <!-- FAQ Item 9 -->
+                         <div class="faq-item">
+                             <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                <h3 class="text-xl font-bold mb-2">How do I become an affiliate?</h3>
+                            </button>
+                            <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                 <p>There are only 500 Affiliate Applications Available.
+                                     You must have at least a Minimum 10,000 followers on TikTok (nano-influencer status).
+                                     An active PayPal account for receiving payments.
+                                     Minimum 10 sales = $49.90 must be made before first payout will be processed</p>
+                            </div>
+                         </div>
+                          <!-- FAQ Item 10 -->
+                        <div class="faq-item">
+                             <button class="faq-header w-full bg-black/30 p-6 rounded-lg text-left focus:outline-none" onclick="toggleFAQ(this)">
+                                 <h3 class="text-xl font-bold mb-2">Will I still be able to use TikTok Rescue after 19 January 2025?</h3>
+                             </button>
+                             <div class="faq-content hidden bg-black/30 p-6 rounded-lg mt-2">
+                                 <p>We’re constantly working to enhance TikTok Rescue. Stay tuned for new features, more integration options, and even smoother operations.</p>
+                            </div>
+                        </div>
+                     </div>
+                </div>  
+            </section>
+            
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Footer Inclusion Script -->
+    <script>
+        // Function to load external HTML files
+        function loadHTML(elementId, url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading ' + url + ':', error);
+                });
+        }
+
+        // Load header and footer on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHTML('header-placeholder', 'header.html');
+            loadHTML('footer-placeholder', 'footer.html');
+        });
+    </script>
+    <script>
+        function toggleFAQ(header) {
+            // Find the corresponding content area by looking at the header's next sibling
+            const content = header.nextElementSibling;
+            
+            // Toggle the display of the content area
+            content.classList.toggle('hidden');
+
+            // Toggle the 'active' class for arrow rotation
+             header.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

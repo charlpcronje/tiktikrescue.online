@@ -1,0 +1,99 @@
+/* File: styles.css */
+:root {
+    --bg: #ffffff;
+    --text: #333333;
+    --accent: #007AFF;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a;
+      --text: #ffffff;
+      --accent: #0A84FF;
+      --shadow: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background 0.3s ease;
+  }
+  
+  .carousel-container {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    overflow: visible;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo.active {
+    opacity: 1;
+  }
+  
+  .chevron {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  .chevron:hover {
+    background: var(--accent);
+    color: white;
+  }
+  
+  .chevron.left {
+    left: 10px;
+  }
+  
+  .chevron.right {
+    right: 10px;
+  }
+  
+  .chevron svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text);
+  }
+  
+  .chevron:hover svg {
+    fill: white;
+  }
+  
