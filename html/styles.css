@@ -1,0 +1,16 @@
+/* styles.css */
+.download-btn {
+    background: linear-gradient(45deg, #fe2c55, #25f4ee);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 1rem 0;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,28 @@
+{
+    "root_path": "/var/www/html/tiktokrescue.online/html",
+    "output_path": "/var/www/html/tiktokrescue.online/html/combined.md",
+    "gitignore_path": "",
+    "exclude_folders": [
+        ".history",
+        ".github",
+        ".git",
+        "node_modules",
+        "docs",
+        "combine",
+        "web"
+    ],
+    "exclude_files": [
+        "combined.md",
+        "combine.json",
+        "package-lock.json",
+        "app/components/MarkdownViewer.js",
+        "docs/spec.md",
+        "README.md",
+        "app/admin/AdminDashboard.jsx"
+    ],
+    "file_types": [
+        ".html",
+        ".css",
+        ".js"
+    ]
+}

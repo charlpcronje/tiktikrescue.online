@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Affiliate Program - TikTok Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <script src="auth.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tiktok-pink': '#ff2e57',
+                        'tiktok-blue': '#5cfffa',
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        @media (max-width: 1024px) {
+            #mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 50;
+            }
+            #mobile-menu a {
+                padding: 1rem;
+                display: block;
+            }
+        }
+        .gradient-btn {
+            background: linear-gradient(45deg, #ff2e57, #5cfffa);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 1rem 0;
+        }
+        .gradient-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-[#2e2b2e] text-white">
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white">
+            <main class="pt-24 pb-16">
+                <!-- Hero Section -->
+                <div class="container mx-auto px-4 text-center mb-16">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-tiktok-blue to-tiktok-pink text-transparent bg-clip-text">
+                        Join Our Affiliate Program & Earn Big!
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                        Earn a 30% commission for every sale you generate
+                    </p>
+                    <a href="https://tiktokrescue.trackdesk.com/sign-up" class="gradient-btn text-xl">
+                        Sign Up Today</a>
+                </div>
+
+                <!-- Benefits Grid -->
+                <div class="container mx-auto px-4 mb-16">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-black/30 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-tiktok-blue">Unlimited Earnings</h3>
+                            <p>No cap on your earnings. The more you promote, the more you earn!</p>
+                        </div>
+                        <div class="bg-black/30 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-tiktok-blue">Marketing Tools</h3>
+                            <p>Access professional banners, links, and content for your campaigns.</p>
+                        </div>
+                        <div class="bg-black/30 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-tiktok-blue">Real-Time Tracking</h3>
+                            <p>Monitor your performance with our advanced dashboard.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requirements Section -->
+                <div class="container mx-auto px-4 mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">Affiliate Requirements</h2>
+                    <div class="max-w-3xl mx-auto bg-black/30 p-8 rounded-lg">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-tiktok-pink flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Only 500 Applications Available</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-tiktok-pink flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Minimum 10,000 followers (nano-influencer status)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-tiktok-pink flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Active PayPal account for receiving payments</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                 <svg class="w-6 h-6 text-tiktok-pink flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                 </svg>
+                                 <span>Minimum 10 sales = $49.9 before first payout will be processed<br> 
+                                  <a href="https://tiktokrescue.online/paypal-service.html" target="_blank" class="hover:text-tiktok-blue transition-colors">
+                                    (Click here to see full breakdown of PayPal service fees)</span></a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- How It Works -->
+                <div class="container mx-auto px-4 mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">How It Works</h2>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-tiktok-pink to-tiktok-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Sign Up</h3>
+                            <p>Complete our simple registration process</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-tiktok-pink to-tiktok-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Promote</h3>
+                            <p>Share your unique affiliate link</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-tiktok-pink to-tiktok-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Earn</h3>
+                            <p>Get 30% commission on each sale</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="container mx-auto px-4 mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                    <div class="max-w-3xl mx-auto space-y-4">
+                        <div class="bg-black/30 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">When do I receive my payouts?</h3>
+                            <p>Payouts will be processed no later than 25 January 2025, provided you've reached the minimum threshold of $50.</p>
+                        </div>
+                        <div class="bg-black/30 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">What marketing materials are provided?</h3>
+                            <p>You'll get access to banners, text links, promotional articles, and videos to help you promote effectively.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-bold mb-4">Ready to Start Earning?</h2>
+                    <p class="text-xl mb-8">Join our affiliate program today and start earning generous commissions!</p>
+                    <a href="https://tiktokrescue.trackdesk.com/sign-up" class="gradient-btn text-xl">
+                    Get Your Affiliate Link</a>
+                    <p class="mt-4 text-gray-400">Questions?<br> 
+                        Contact us at affiliate@tiktokrescue.online</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="scripts.js" defer></script>
+</body>
+</html>

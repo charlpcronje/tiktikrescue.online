@@ -1,0 +1,29 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Success!</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+     tailwind.config = {
+       theme: {
+         extend: {
+           colors: {
+             'tiktok-pink': '#ff2e57',
+             'tiktok-blue': '#5cfffa',
+           },
+         },
+       },
+     }
+   </script>
+   <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body class="bg-[#2e2b2e] text-white">
+   <div class="min-h-screen flex flex-col justify-center items-center p-8">
+       <h1 class="text-3xl font-bold mb-4">Thank You!</h1>
+       <p class="text-lg text-gray-300 mb-6">Your message has been sent successfully. We'll get back to you soon!</p>
+       <a href="index.html" class="bg-tiktok-pink hover:bg-tiktok-blue text-white font-bold py-2 px-4 rounded">Go back to home</a>
+   </div>
+</body>
+</html>
+```

@@ -1,233 +1,328 @@
-<html><head><base href="/" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>TikTok Rescue - Bulk Download Your TikTok Videos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <script src="auth.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tiktok-pink': '#ff2e57',
+                        'tiktok-blue': '#5cfffa',
+                    },
+                },
+            },
+        }
+    </script>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
-    body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #010101, #1a1a1a);
-        color: #fff;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    
-    .header {
-        background: rgba(0,0,0,0.8);
-        padding: 1rem;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-    
-    .logo {
-        font-size: 2.5rem;
-        font-weight: bold;
-        background: linear-gradient(45deg, #fe2c55, #25f4ee);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-    }
-    
-    .hero {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 2rem;
-    }
-    
-    .hero-content {
-        flex: 1;
-        padding-right: 2rem;
-    }
-    
-    .demo-container {
-        flex: 1;
-        position: relative;
-    }
-    
-    .phone-mockup {
-        width: 300px;
-        height: 500px;
-        border-radius: 40px;
-        margin: auto;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .screen-content {
-        padding: 20px;
-    }
-    
-    .download-btn {
-        background: linear-gradient(45deg, #fe2c55, #25f4ee);
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        font-size: 1.2rem;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: transform 0.3s;
-        margin: 1rem 0;
-    }
-    
-    .download-btn:hover {
-        transform: scale(1.05);
-    }
-    
-    .features {
-        max-width: 1200px;
-        margin: 4rem auto;
-        padding: 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-    
-    .feature-card {
-        background: rgba(255,255,255,0.1);
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-    }
-    
-    .feature-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 1rem;
-    }
-    
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
-    }
-    
-    .floating-videos {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation: float 3s ease-in-out infinite;
-    }
-    
+        @media (max-width: 1024px) {
+            #mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 50;
+            }
+            #mobile-menu a {
+                padding: 1rem;
+                display: block;
+            }
+        }
+        .gradient-btn {
+            background: linear-gradient(45deg, #ff2e57, #5cfffa);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 1rem 0;
+        }
+        .gradient-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
-    </head>
-    <body>
-        <header class="header">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <a href="https://tiktokrescue.online"><img src="img/logo.png" alt="Logo" style="height: 50px; margin-right: 2rem;"></a>
-                <nav style="display: flex; gap: 1.5rem;">
-                    <a href="/" style="color: #fff; text-decoration: none;" 
-                       onmouseover="this.style.textDecoration='underline'" 
-                       onmouseout="this.style.textDecoration='none'">Home</a>
-                    <a href="#download" style="color: #fff; text-decoration: none;" 
-                       onmouseover="this.style.textDecoration='underline'" 
-                       onmouseout="this.style.textDecoration='none'">Download</a>
-                    <a href="#documentation" style="color: #fff; text-decoration: none;" 
-                       onmouseover="this.style.textDecoration='underline'" 
-                       onmouseout="this.style.textDecoration='none'">Documentation</a>
-                    <a href="https://youtube.com" target="_blank" style="color: #fff; text-decoration: none;" 
-                       onmouseover="this.style.textDecoration='underline'" 
-                       onmouseout="this.style.textDecoration='none'">See on YouTube</a>
-                </nav>
-            </div>
-        </header>
-        
-    
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Download Your TikTok Videos in Bulk</h2>
-                <p>Never lose your content again. TikTok Rescue helps you download and backup all your TikTok videos with just one click.</p>
-                <div style="position: relative; width: 100%; max-width: 560px; margin: 0 auto; aspect-ratio: 16/9;">
-                    <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" style="display: block; width: 100%; height: 100%;">
-                        <img src="img/poster.png" alt="Watch on YouTube" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                            <img src="img/play-button.png" alt="Play Video" style="width: 120px; height: 120px;"> 
+</head>
+  <body class="bg-[#2e2b2e] text-white">
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white">
+            <!-- Hero Section -->
+            <section id="home" class="pt-32 pb-20">
+                <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-tiktok-blue to-tiktok-pink text-transparent bg-clip-text">
+                            Secure Your TikTok Memories Before the Ban!
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Effortlessly Download, Preserve, and Transfer Your TikTok Content Safely.
+                        </p>
+                        <button class="download-btn px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-l from-tiktok-blue to-tiktok-pink hover:opacity-90 transition-opacity mb-4">
+                            Download Now - <span style="color: #df3b5d">Only $4.99</span>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <div class="rounded-2xl shadow-2xl relative pt-[56.25%] ">
+                            <iframe 
+                              class="rounded-2xl shadow-4xl absolute top-0 left-0 w-full h-full"
+                              src="https://www.youtube.com/embed/ptmoyffIbHY?si=ZSRy_3Oy8mvgUxIR" 
+                              title="YouTube video player" 
+                              frameborder="0" 
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                              referrerpolicy="strict-origin-when-cross-origin" 
+                              allowfullscreen>
+                            </iframe>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                
-                <button class="download-btn" onclick="showDownloadPrompt()">Download TikTok Rescue</button>
-            </div>
-            
-            <div class="demo-container">
-                <div class="phone-mockup">
-                    <img src="img/mockup.png" alt="TikTok Rescue App Mockup" style="width: 100%; height: auto; border-radius: 40px;">
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="py-20 bg-[#3a373a]">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-12">Once off Payment. No Hidden Fees</h2>
+                    <div class="max-w-md mx-auto bg-[#2e2b2e] p-8 rounded-2xl">
+                        <div class="text-5xl font-bold mb-6">$4.99</div>
+                        <ul class="text-left space-y-4 mb-8">
+                            <li class="flex items-center gap-2">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue" height="20" width="20"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Unlimited downloads and transfers
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue" height="20" width="20"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Lifetime access to updates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue" height="20" width="20"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                No recurring fees
+                            </li>
+                        </ul>
+                        <button class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-l from-tiktok-blue to-tiktok-pink hover:opacity-90 transition-opacity download-btn">Get Started <span style="color: #df3b5d">Now</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Section -->
+            <section id="how-it-works" class="py-20">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-12">See How It Works</h2>
+                    <div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto bg-[#3a373a] rounded-2xl flex items-center justify-center">
+                        <div class="relative"><img
+                        src="https://tiktokrescue.online/img/poster.png"
+                        alt="TikTok Content"
+                        class="rounded-2xl shadow-2xl"
+                    />
+                        <p class="text-xl text-gray-400">Video Placeholder</p>
+                    </div>
+                </div>
+            </section>
+            <!-- See How It Works Section -->
+<section class="py-20 bg-[#2e2b2e]">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12">Simple Steps To Secure Your Content</h2>
+        <div class="max-w-md mx-auto bg-[#3a373a] p-8 rounded-2xl">
+            <div class="text-5xl font-bold mb-6"></div>
+            <ol class="text-left space-y-4 mb-8 list-decimal list-inside">
+                <li class="flex items-start gap-2">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1" height="20" width="20">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Download the TikTokRescue application or Chrome extension.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1" height="20" width="20">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Select individual videos or download in bulk.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+                         stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1" height="20" width="20">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Select the videos you want to download, preserve, or transfer.</span>
+                </li>
+            </ol>
+            <button class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-l from-tiktok-blue to-tiktok-pink hover:opacity-90 transition-opacity download-btn">
+                Get Started <span style="color: #df3b5d">Now</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+            <!-- Why Choose Us Section -->
+            <section id="features" class="py-20 bg-[#3a373a]">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold mb-6 text-center">Why choose TikTok Rescue?</h2>
+                    <p class="text-gray-300 max-w-3xl mx-auto text-center mb-16">
+                        With the impending TikTok ban on January 19th, safeguarding your cherished content has never been more crucial. TikTokRescue is your reliable solution to securely download and preserve your TikTok videos before they potentially disappear.
+                    </p>
+                    <p class="text-2xl text-tiktok-blue font-semibold mb-8 text-center">MAIN FEATURES</p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-check text-tiktok-blue mb-4" height="32" width="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="15 11 17 13 22 8"></polyline></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Secure Signup</h3>
+                            <p class="text-gray-300">Users can join TikTok Rescue using their email, password, TikTok, or Google account, ensuring a secure and versatile entry point into the service</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link text-tiktok-blue mb-4" height="32" width="32"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Easy Integration</h3>
+                            <p class="text-gray-300">The application allows for seamless connection to your TikTok account, providing straightforward access to your videos for easy management</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-cloud text-tiktok-blue mb-4" height="32" width="32"><path d="M18 10h-1.26A8 8 0 1 0 6 10H4a9 9 0 1 1 5-8.94L10.3 7"></path><polyline points="16 16 12 20 8 16"></polyline><line x1="12" x2="12" y1="12" y2="20"></line></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Download Videos</h3>
+                            <p class="text-gray-300">TikTok Rescue offers the capability to download up to three TikTok videos for free directly to your device.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload text-tiktok-blue mb-4" height="32" width="32"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">YouTube Upload</h3>
+                            <p class="text-gray-300">Users can effortlessly transfer their downloaded videos directly to YouTube as private uploads, simplifying the process of managing content across platforms</p>
+                        </div>
+                         <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout text-tiktok-blue mb-4" height="32" width="32"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="3"></line></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">User-Friendly Design</h3>
+                            <p class="text-gray-300">The Chrome extension interface of TikTokRescue includes everything from login pages to detailed progress dashboards, making it easy to navigate and utilize for all levels of tech-savvy users</p>
+                        </div>
+                         <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database text-tiktok-blue mb-4" height="32" width="32"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.7 2.6 3 6 3s6-1.3 6-3V5"></path><path d="M14 5c0 1.7 2.6 3 6 3v11m-12 0v-8"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Robust Backend and Secure Database</h3>
+                            <p class="text-gray-300">The service is powered by Slim PHP, ensuring smooth operation from authentication to data management.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Affiliate Section -->
+            <section id="affiliates" class="py-20">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-6">Join Our Affiliate Program</h2>
+                    <p class="text-2xl text-tiktok-blue font-semibold mb-8">Earn 30% for Every Referral</p>
+                    <p class="text-gray-300 max-w-2xl mx-auto mb-12">
+                        Partner with TikTokRescue and turn your network into earnings. As an affiliate, you'll receive a generous 30% commission for every referral that purchases our service.
+                    </p>
+                    <a href="https://tiktokrescue.online/affiliates.html" class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-tiktok-blue to-tiktok-pink hover:opacity-90 transition-opacity">Become an Affiliate</a>
+                </div>
+            </section>
+            <!---FAQ Section-->
+            <section id="faq" class="py-20 bg-[#3a373a]">
+                                <div class="container mx-auto px-4 mb-16">
+                                    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                                    <div class="max-w-3xl mx-auto space-y-4">
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">How do I install TikTok Rescue?</h3>
+                                            <p>Just follow the download links. Download the Chrome extension or app in playstore and follow the instructions to add it to your browser. It’s quick and easy!</p>
+                                        </div>
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">TikTok Rescue allows you to:</h3>
+<ul class="list-none pl-0">
+    <li class="flex items-center mb-2">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Download your TikTok videos directly to your device.</span>
+    </li>
+    <li class="flex items-center mb-2">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Upload your videos to YouTube as private videos.</span>
+    </li>
+    <li class="flex items-center mb-2">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" 
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-tiktok-blue mt-1 mr-2" height="20" width="20">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Manage your TikTok and YouTube content easily from one platform.</span>
+    </li>
+</ul>
+<span>Download the TikTokRescue application or Chrome extension.</span>
+                                        </div>
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">Is TikTok Rescue free to use?</h3>
+                                             <p>TikTokRescue is free for downloading up to 3 TikTok videos. If you wish to download more, you can easily upgrade to by making a small payment of $4.99.</p>
+                                        </div>
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                           <h3 class="text-xl font-bold mb-2">How do I link my TikTok account to TikTokRescue?</h3>
+                                            <p>Once you’ve installed TikTok Rescue, go to the settings page where you can securely link your TikTok account by logging in with your TikTok credentials. We ensure all data is encrypted and securely handled.</p>
+                                        </div>
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">How do I upload videos to YouTube using TikTokRescue?</h3>
+                                            <p>After downloading your TikTok videos, go to the ‘Uploads’ tab in the extension and select the videos you want to transfer to YouTube. You can set them as private so that only you can view them unless you decide to share further.</p>
+                                         </div>
+                                         <div class="bg-black/30 p-6 rounded-lg">
+                                             <h3 class="text-xl font-bold mb-2">Can I use TikTok Rescue on any browser?</h3>
+                                              <p>Currently, TikTok Rescue is available as a Chrome extension. We plan to expand to other browsers in the future. Stay tuned for updates!</p>
+                                         </div>
+                                         <div class="bg-black/30 p-6 rounded-lg">
+                                             <h3 class="text-xl font-bold mb-2">What happens if I face issues with the extension?</h3>
+                                            <p>If you encounter any issues or errors, please contact our support team by submitting a ticket through the support section in the extension. We are here to help resolve any problems as quickly as possible.</p>
+                                        </div>
+                                        <div class="bg-black/30 p-6 rounded-lg">
+                                             <h3 class="text-xl font-bold mb-2">How secure is my data with TikTok Rescue?</h3>
+                                            <p>At TikTokRescue, we prioritize your privacy and security. All communications are encrypted, and we never store your TikTok or YouTube login credentials.</p>
+                                        </div>
+                                         <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">How do I become an affiliate?</h3>
+                                            <p>There are only 500 Affiliate Applications Available.
+                You must have at least a Minimum 10,000 followers on TikTok (nano-influencer status).
+                An active PayPal account for receiving payments.
+                Minimum 10 sales = $49.90 must be made before first payout will be processed</p>
+                                         </div>
+                                          <div class="bg-black/30 p-6 rounded-lg">
+                                            <h3 class="text-xl font-bold mb-2">Will I still be able to use TikTok Rescue after 19 January 2025?</h3>
+                                            <p>We’re constantly working to enhance TikTok Rescue. Stay tuned for new features, more integration options, and even smoother operations.</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                </section>
+                                 <!-- Download Section -->
+                                 <section id="downloads" class="py-20 bg-[#212121]">
+                                    <div class="container mx-auto px-4 text-center">
+                                        <h1 class="text-5xl font-bold mb-10 bg-gradient-to-r from-tiktok-blue to-tiktok-pink text-transparent bg-clip-text">
+                                            Backup Your TikTok Account Today
+                                        </h1>
+                                         <div class="max-w-md mx-auto bg-[#3A373A] p-8 rounded-2xl">
+                                            <div class="grid  justify-center">
+                                                 <div class="flex flex-col items-center text-center">
+                                                    <svg stroke="currentColor" fill="none" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                                                        class="lucide lucide-download text-tiktok-blue mb-4" height="36" width="36">
+                                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                        <polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line>
+                                                    </svg>
+                                                    <h2 class="text-xl font-semibold mb-5 text-white">Test With 3 FREE Downloads</h2>
+                                                    <p class="text-gray-300 mb-5">Transfer Your Videos to Youtube Privately, or Download to Your Own System. All in Bulk</p>
+                                                    <a href="#" class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-tiktok-blue to-tiktok-pink hover:opacity-90 transition-opacity">
+                                                        <span style="color: #df3b5d">Start</span> Downloading Now
+                                                    </a>
+                                                    <p class="text-2xl text-tiktok-blue font-semibold mt-8">Only $4.99</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                
+            <!-- Footer -->
+                    <div id="footer-placeholder"></div>
                 </div>
             </div>
-        </section>
-    
-        <section class="features">
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24">
-                    <path fill="#fe2c55" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-                </svg>
-                <h3>Bulk Download</h3>
-                <p>Download all your videos at once with just one click</p>
-            </div>
-            
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24">
-                    <path fill="#25f4ee" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-                </svg>
-                <h3>Secure Backup</h3>
-                <p>Keep your content safe with automatic cloud backup</p>
-            </div>
-            
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24">
-                    <path fill="#fe2c55" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
-                </svg>
-                <h3>Easy Organization</h3>
-                <p>Organize your downloads by date, caption, or custom folders</p>
-            </div>
-        </section>
-    
-    <script>
-    function showDownloadPrompt() {
-        const userAgent = navigator.userAgent.toLowerCase();
-        let downloadLink = "https://tiktokrescue.com/download";
-        
-        if (userAgent.includes("android")) {
-            downloadLink = "https://play.google.com/store/apps/details?id=com.tiktokrescue";
-        } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
-            downloadLink = "https://apps.apple.com/app/tiktokrescue";
-        }
-        
-        const confirmation = confirm("Download TikTok Rescue for your device?");
-        if (confirmation) {
-            window.location.href = downloadLink;
-        }
-    }
-    
-    // Add smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    // Add parallax effect to floating videos
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const videos = document.querySelector('.floating-videos');
-        videos.style.transform = `translate(-50%, -${50 + scrolled * 0.1}%)`;
-    });
-    </script>
-    <footer style="position: fixed; bottom: 0; width: 100%; text-align: center; background: rgba(0, 0, 0, 0.8); padding: 1rem 0;">
-        <a href="/privacy-policy.html" style="color: #fff; text-decoration: none; margin: 0 1rem;" 
-           onmouseover="this.style.textDecoration='underline'" 
-           onmouseout="this.style.textDecoration='none'">Privacy Policy</a>
-        <a href="/terms-of-service.html" style="color: #fff; text-decoration: none; margin: 0 1rem;" 
-           onmouseover="this.style.textDecoration='underline'" 
-           onmouseout="this.style.textDecoration='none'">Terms of Service</a>
-    </footer>
-    
-    </body></html>
+            <script src="scripts.js"></script>
+</body>
+</html>

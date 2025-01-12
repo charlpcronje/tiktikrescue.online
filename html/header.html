@@ -1,0 +1,76 @@
+<!-- header.html -->
+<nav class="fixed w-full bg-black text-white py-2 z-50">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-2 text-xl font-bold bg-gradient-to-r from-tiktok-blue to-tiktok-pink text-transparent bg-clip-text">
+            <a href="https://tiktokrescue.online" class="flex items-center gap-2">
+                <img src="https://tiktokrescue.online/img/logo.png" alt="TikTok Rescue Logo" class="h-10">
+                <span>TikTok Rescue</span>
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-6 text-sm">
+            <a href="https://tiktokrescue.online/#home" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-home" height="16" width="16"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                Home
+            </a>
+            <a href="https://tiktokrescue.online/#features" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-layers" height="16" width="16"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                Features
+            </a>
+            <a href="https://tiktokrescue.online/#downloads" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-download" height="16" width="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                Download
+            </a>
+            <a href="https://tiktokrescue.online/#how-it-works" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-info" height="16" width="16"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line>
+                        <line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+                How It Works
+            </a>
+            <a href="https://tiktokrescue.online/#faq" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-help-circle" height="16" width="16"><circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                FAQ
+            </a>
+            <a href="https://tiktokrescue.online/#affiliates" class="flex items-center gap-1 hover:text-tiktok-blue transition-colors">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" 
+                        class="lucide lucide-users" height="16" width="16"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Affiliates
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <div class="md:hidden">
+            <button id="menu-button" class="text-white focus:outline-none" aria-label="Toggle Menu" aria-expanded="false">
+                <!-- Hamburger Icon -->
+                <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+                <!-- Close Icon (Hidden by Default) -->
+                <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Menu (Hidden by Default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black">
+        <a ref="https://tiktokrescue.online/#home"class="block px-4 py-2 hover:bg-gray-700">Home</a>
+        <a href="https://tiktokrescue.online/#features" class="block px-4 py-2 hover:bg-gray-700">Features</a>
+        <a href="https://tiktokrescue.online/#downloads" class="block px-4 py-2 hover:bg-gray-700">Download</a>
+        <a hhref="https://tiktokrescue.online/#how-it-works" class="block px-4 py-2 hover:bg-gray-700">How It Works</a>
+        <a hhref="https://tiktokrescue.online/#faq" class="block px-4 py-2 hover:bg-gray-700">FAQ</a>
+        <a href="https://tiktokrescue.online/#affiliates" class="block px-4 py-2 hover:bg-gray-700">Affiliates</a>
+    </div>
+</nav>

@@ -1,0 +1,68 @@
+<!-- base-template.html -->
+<head>
+    <!-- Existing head content -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js" defer></script>
+    
+    <!-- Your auth script -->
+    <script src="auth.js" defer></script>
+    
+    <!-- Tailwind Configuration -->
+    <script defer>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'tiktok-pink': '#ff2e57',
+              'tiktok-blue': '#5cfffa',
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Favicon and Custom Styles -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+      .download-btn {
+        background: linear-gradient(45deg, #fe2c55, #25f4ee);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin: 1rem 0;
+      }
+      
+      .download-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="bg-[#2e2b2e] text-white">
+      <!-- Header Placeholder -->
+      <div id="header-placeholder"></div>
+  
+      <div id="root">
+          <div class="min-h-screen bg-[#2e2b2e] text-white">
+              <!-- Unique Content for Each Page -->
+              <main>
+                  <!-- Insert unique content here -->
+              </main>
+          </div>
+      </div>
+  
+      <!-- Footer Placeholder -->
+      <div id="footer-placeholder"></div>
+  
+      <!-- Footer Inclusion Script -->
+      <script src="scripts.js" defer></script>
+  </body>
+  </html>
+  

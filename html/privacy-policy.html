@@ -1,42 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Rescue - Privacy Policy</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - TikTok Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'tiktok-pink': '#ff2e57',
+              'tiktok-blue': '#5cfffa',
+            },
+          },
+        },
+      }
+    </script>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(0, 0, 0);
-            color: rgb(252, 245, 245);
-            margin: 2em;
-            line-height: 1.6;
+        .download-btn {
+          background: linear-gradient(45deg, #fe2c55, #25f4ee);
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          font-size: 1.2rem;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: transform 0.3s;
+          margin: 1rem 0;
         }
-        h1 {
-            text-align: center;
+        
+        .download-btn:hover {
+          transform: scale(1.05);
         }
-        .wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-    </style>
+      </style>
 </head>
-<body>
-    <div class="wrapper">
-        <h1>Privacy Policy</h1>
-        <p>[Your App Name] ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our application ("App").</p>
-        <h2>1. Information We Collect</h2>
-        <p>We may collect personal information (e.g., name, email, TikTok account details) and usage data (e.g., IP address, activity logs).</p>
-        <h2>2. How We Use Your Information</h2>
-        <p>We use your information to provide and maintain the App's functionality, facilitate your requests, improve user experience, and comply with legal obligations.</p>
-        <h2>3. Sharing Your Information</h2>
-        <p>We do not sell or share your personal information except with trusted partners to operate the App or when required by law.</p>
-        <h2>4. Data Security</h2>
-        <p>We implement appropriate measures to safeguard your data but cannot guarantee absolute security.</p>
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at [Your Contact Email].</p>
-    </div>  
+<body class="bg-[#2e2b2e] text-white">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white">
+            <!-- Privacy Policy Content -->
+            <main class="pt-4 pb-4 pl-10 pr-10">
+                <div class="container mx-auto px-4 py-20 text-gray-300">
+                    <!-- Title and Last Updated -->
+                    <h1 class="text-4xl font-bold mb-4 text-white">Privacy Policy</h1>
+                    <p class="mb-8">Last Updated: January 3, 2025</p>
+
+                    <!-- Introduction -->
+                    <p class="mb-6">
+                        Welcome to TikTokRescue, a service provided by WebAlly Software Development ("we", "our", "us"). We are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our application, Chrome extension, and related services (collectively, the "Service"). Please read this Privacy Policy carefully. By accessing or using our Service, you agree to the terms outlined herein.
+                    </p>
+
+                    <!-- Section 1 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">1. Information We Collect</h2>
+
+                    <!-- Subsection: Personal Data -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Personal Data</h3>
+                    <p class="mb-4">
+                        While using our Service, we may collect personally identifiable information that you voluntarily provide to us, including but not limited to:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Email Address:</strong> Used for account registration, communication, and support.</li>
+                        <li><strong>User Credentials:</strong> We collect users details through Googles Firebase Service. Only usernames, phone numbers(if applicable) and unique ID's are stored. We Do not have access to any sensitive information such as Passwords </li>
+                        <li><strong>Payment Information:</strong> If applicable, for processing transactions (Note: We do not store payment details; transactions are handled through secure third-party providers).</li>
+                    </ul>
+
+                    <!-- Subsection: Usage Data -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Usage Data</h3>
+                    <p class="mb-4">
+                        We may automatically collect information about how you access and use the Service, including:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Device Information:</strong> Including IP address, browser type, operating system, device identifiers.</li>
+                        <li><strong>Access Times:</strong> Date and time of your access to the Service.</li>
+                        <li><strong>Usage Patterns:</strong> Pages or features you access, actions you take within the Service.</li>
+                        <li><strong>Log Data:</strong> Server logs may collect information such as your device’s Internet Protocol (IP) address, browser type, and pages visited.</li>
+                    </ul>
+
+                    <!-- Subsection: Content Data -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Content Data</h3>
+                    <p class="mb-4">
+                        When you use TikTokRescue to download or transfer content, we may process the content you interact with, including:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Downloaded Content:</strong> Videos, images, and other media downloaded from TikTok or transferred to other platforms like YouTube or Instagram.</li>
+                        <li><strong>Metadata:</strong> Information related to the content, such as timestamps, descriptions, and associated user information.</li>
+                    </ul>
+
+                    <!-- Section 2 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">2. How We Use Your Information</h2>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>To Provide and Maintain the Service:</strong> Ensuring the functionality and performance of TikTokRescue.</li>
+                        <li><strong>To Process Transactions:</strong> Handling payments and delivering purchased services.</li>
+                        <li><strong>To Improve the Service:</strong> Analyzing usage patterns to enhance user experience and develop new features.</li>
+                        <li><strong>To Communicate with You:</strong> Sending updates, support messages, and promotional materials (with your consent where required).</li>
+                        <li><strong>To Ensure Security:</strong> Monitoring and protecting against unauthorized access, breaches, or other security threats.</li>
+                        <li><strong>To Comply with Legal Obligations:</strong> Adhering to applicable laws, regulations, and legal processes.</li>
+                    </ul>
+
+                    <!-- Section 3 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">3. How We Share Your Information</h2>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>With Service Providers:</strong> Third-party vendors who perform services on our behalf, such as payment processing, data analysis, email delivery, and customer support.</li>
+                        <li><strong>For Legal Reasons:</strong> When required by law, regulation, or legal process, or to protect our rights, property, or safety, and that of our users or others.</li>
+                        <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction.</li>
+                        <li><strong>With Your Consent:</strong> We may share your information with third parties if you have given us explicit consent to do so.</li>
+                    </ul>
+                    <div class="bg-[#3a373a] border-l-4 border-[#ff4d4d] p-4 mb-6">
+                        <strong>Important:</strong> We do not sell, rent, or lease your personal information to third parties for their marketing purposes without your explicit consent.
+                    </div>
+
+                    <!-- Section 4 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">4. Third-Party Platforms and Services</h2>
+                    <p class="mb-6">
+                        When you use TikTokRescue to transfer or migrate content to third-party platforms such as YouTube, Instagram, or others, please be aware that:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Responsibility:</strong> You are responsible for complying with the terms, policies, and regulations of those third-party platforms.</li>
+                        <li><strong>Data Handling:</strong> WebAlly Software Developers does not assume any responsibility for how third-party platforms handle your data. We recommend reviewing the privacy policies of those platforms to understand their data practices.</li>
+                    </ul>
+
+                    <!-- Section 5 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">5. Data Security</h2>
+                    <p class="mb-4">
+                        We implement a variety of security measures to maintain the safety of your personal information. These measures include:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Encryption:</strong> Protecting sensitive information during transmission using secure protocols (e.g., SSL/TLS).</li>
+                        <li><strong>Access Controls:</strong> Restricting access to personal data to authorized personnel only.</li>
+                        <li><strong>Regular Audits:</strong> Conducting periodic reviews of our data collection, storage, and processing practices.</li>
+                    </ul>
+                    <p class="mb-6">
+                        However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security.
+                    </p>
+
+                    <!-- Section 6 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">6. Your Rights and Choices</h2>
+                    <p class="mb-4">
+                        Depending on your jurisdiction, you may have the following rights regarding your personal information:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Access:</strong> Request access to the personal data we hold about you.</li>
+                        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+                        <li><strong>Deletion:</strong> Request deletion of your personal data under certain conditions.</li>
+                        <li><strong>Objection:</strong> Object to or restrict our processing of your personal data.</li>
+                        <li><strong>Portability:</strong> Request the transfer of your data to another service provider.</li>
+                    </ul>
+                    <p class="mb-6">
+                        To exercise any of these rights, please contact us using the information provided in the "Contact Us" section below. We will respond to your request in accordance with applicable laws.
+                    </p>
+
+                    <!-- Section 7 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">7. Children’s Privacy</h2>
+                    <p class="mb-6">
+                        Our Service is not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such information from our servers.
+                    </p>
+
+                    <!-- Section 8 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">8. International Data Transfers</h2>
+                    <p class="mb-6">
+                        Your information may be transferred to and maintained on servers located outside your country of residence. By using our Service, you consent to the transfer of your information to countries that may have different data protection laws than your country. We take steps to ensure that your data is treated securely and in accordance with this Privacy Policy.
+                    </p>
+
+                    <!-- Section 9 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">9. Changes to This Privacy Policy</h2>
+                    <p class="mb-4">
+                        We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated “Last Updated” date. We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.
+                    </p>
+                    <p class="mb-6">
+                        If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+                    </p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Footer Inclusion Script -->
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - TikTok Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'tiktok-pink': '#ff2e57',
+              'tiktok-blue': '#5cfffa',
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+      .download-btn {
+        background: linear-gradient(45deg, #fe2c55, #25f4ee);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin: 1rem 0;
+      }
+      
+      .download-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+</head>
+<body class="bg-[#2e2b2e] text-white">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white text-center">
+            <!-- Unique Content for Each Page -->
+            <main class="py-20">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold mb-6">Contact Us</h1>
+                    <p class="text-gray-300 mb-4">
+                        Have questions or feedback? We'd love to hear from you!
+                    </p>
+                    <form class="max-w-lg mx-auto" action="send_email.php" method="post">
+                        <div class="mb-4">
+                            <label class="block text-gray-300 mb-2" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 rounded bg-[#3a373a] text-white" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-300 mb-2" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 rounded bg-[#3a373a] text-white" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-300 mb-2" for="message">Message</label>
+                            <textarea id="message" name="message" class="w-full p-2 rounded bg-[#3a373a] text-white" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="download-btn">Send Message</button>
+                    </form>
+                </div>
+            </main>
+            
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Footer Inclusion Script -->
+    <script>
+        // Function to load external HTML files
+        function loadHTML(elementId, url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading ' + url + ':', error);
+                });
+        }
+
+        // Load header and footer on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHTML('header-placeholder', 'header.html');
+            loadHTML('footer-placeholder', 'footer.html');
+        });
+    </script>
+</body>
+</html>

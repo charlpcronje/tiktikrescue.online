@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TikTok Rescue</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen bg-[#2e2b2e] text-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-opacity-90 backdrop-blur-sm bg-[#2e2b2e] text-white py-4 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <div class="text-2xl font-bold bg-gradient-to-r from-[#5cfffa] to-[#ff2e57] text-transparent bg-clip-text">
+            TikTokRescue
+          </div>
+          <div class="hidden md:flex gap-8" id="menu">
+            <a href="#home" class="flex items-center gap-2 hover:text-[#5cfffa] transition-colors">
+              <i data-lucide="home"></i>
+              Home
+            </a>
+            <a href="#download" class="flex items-center gap-2 hover:text-[#5cfffa] transition-colors">
+              <i data-lucide="download"></i>
+              Download
+            </a>
+            <a href="#how-it-works" class="flex items-center gap-2 hover:text-[#5cfffa] transition-colors">
+              <i data-lucide="info"></i>
+              How it Works
+            </a>
+            <a href="#affiliates" class="flex items-center gap-2 hover:text-[#5cfffa] transition-colors">
+              <i data-lucide="users"></i>
+              Affiliates
+            </a>
+          </div>
+          <button id="menuBtn" class="md:hidden">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-[#2e2b2e] z-40 hidden pt-20">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col gap-4">
+          <a href="#home" class="text-xl py-2 hover:text-[#5cfffa]">Home</a>
+          <a href="#download" class="text-xl py-2 hover:text-[#5cfffa]">Download</a>
+          <a href="#how-it-works" class="text-xl py-2 hover:text-[#5cfffa]">How it Works</a>
+          <a href="#affiliates" class="text-xl py-2 hover:text-[#5cfffa]">Affiliates</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20">
+      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-[#5cfffa] to-[#ff2e57] text-transparent bg-clip-text">
+            Secure Your TikTok Memories Before the Ban!
+          </h1>
+          <p class="text-xl text-gray-300 mb-8">
+            Effortlessly Download, Preserve, and Transfer Your TikTok Content Safely.
+          </p>
+          <button class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-[#5cfffa] to-[#ff2e57] hover:opacity-90 transition-opacity">
+            Download Now - Only $4.99
+          </button>
+        </div>
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80"
+            alt="TikTok Content"
+            class="rounded-2xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-[#3a373a]">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12">Once off Payment. No Hidden Fees</h2>
+        <div class="max-w-md mx-auto bg-[#2e2b2e] p-8 rounded-2xl">
+          <div class="text-5xl font-bold mb-6">$4.99</div>
+          <ul class="text-left space-y-4 mb-8">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="text-[#5cfffa]"></i>
+              Unlimited downloads and transfers
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="text-[#5cfffa]"></i>
+              Lifetime access to updates
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="text-[#5cfffa]"></i>
+              No recurring fees
+            </li>
+          </ul>
+          <button class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-[#5cfffa] to-[#ff2e57] hover:opacity-90 transition-opacity">
+            Get Started Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-12">See How It Works</h2>
+        <div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto bg-[#3a373a] rounded-2xl flex items-center justify-center">
+          <p class="text-xl text-gray-400">Video Placeholder</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-[#3a373a]">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-6 text-center">Why choose TikTok Rescue?</h2>
+        <p class="text-gray-300 max-w-3xl mx-auto text-center mb-16">
+          With the impending TikTok ban on January 19th, safeguarding your cherished content has never been more crucial. TikTokRescue is your reliable solution to securely download and preserve your TikTok videos before they potentially disappear.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="shield" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Secure Downloads</h3>
+            <p class="text-gray-300">Safe and private content downloading with encryption</p>
+          </div>
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="zap" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Lightning Fast</h3>
+            <p class="text-gray-300">Download multiple videos simultaneously at high speed</p>
+          </div>
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="share-2" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Easy Transfer</h3>
+            <p class="text-gray-300">Seamlessly transfer content to other platforms</p>
+          </div>
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="clock" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Time-Saving</h3>
+            <p class="text-gray-300">Batch download functionality for efficiency</p>
+          </div>
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="cloud" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Cloud Backup</h3>
+            <p class="text-gray-300">Automatic cloud backup of your content</p>
+          </div>
+          <div class="flex flex-col items-center text-center p-6 bg-[#2e2b2e] rounded-xl">
+            <i data-lucide="download" class="text-[#5cfffa] mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Offline Access</h3>
+            <p class="text-gray-300">Download for offline viewing anytime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Affiliate Section -->
+    <section id="affiliates" class="py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6">Join Our Affiliate Program</h2>
+        <p class="text-2xl text-[#5cfffa] font-semibold mb-8">Earn 30% for Every Referral</p>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12">
+          Partner with TikTokRescue and turn your network into earnings. As an affiliate, you'll receive a generous 30% commission for every referral that purchases our service.
+        </p>
+        <button class="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-[#5cfffa] to-[#ff2e57] hover:opacity-90 transition-opacity">
+          Become an Affiliate
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#3a373a] py-8">
+      <div class="container mx-auto px-4 text-center text-gray-400">
+        <p>&copy; 2024 TikTokRescue. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

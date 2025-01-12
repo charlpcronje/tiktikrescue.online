@@ -1,42 +1,251 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Resue - Terms of Service</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - TikTok Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'tiktok-pink': '#ff2e57',
+              'tiktok-blue': '#5cfffa',
+            },
+          },
+        },
+      }
+    </script>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(0, 0, 0);
-            color: rgb(226, 216, 216);
-            margin: 2em;
-            line-height: 1.6;
-        }
-        h1 {
-            text-align: center;
-        }
-        .wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+      .download-btn {
+        background: linear-gradient(45deg, #fe2c55, #25f4ee);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin: 1rem 0;
+      }
+      
+      .download-btn:hover {
+        transform: scale(1.05);
+      }
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <h1>Terms of Service</h1>
-        <p>Welcome to [Your App Name]! By accessing or using our application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
-        <h2>1. Use of the App</h2>
-        <p>The App is provided for personal, non-commercial use. You may not misuse the App or use it for illegal purposes.</p>
-        <h2>2. Account and Permissions</h2>
-        <p>By using the App, you grant us permission to access your TikTok account data as authorized by you. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
-        <h2>3. Intellectual Property</h2>
-        <p>All content in the App, including text, graphics, and software, is owned by us or licensed to us. You may not reproduce, distribute, or create derivative works without our explicit consent.</p>
-        <h2>4. Prohibited Activities</h2>
-        <p>You agree not to reverse-engineer, decompile, or disassemble the App, or use it to download content from TikTok accounts you do not own or have explicit permission to access.</p>
-        <h2>5. Limitation of Liability</h2>
-        <p>We are not responsible for any damages arising from the use or inability to use the App. The App is provided "as is" without warranties of any kind.</p>
+<body class="bg-[#2e2b2e] text-white">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <div id="root">
+        <div class="min-h-screen bg-[#2e2b2e] text-white">
+            <!-- Unique Content for Terms of Service Page -->
+            <main class="pt-4 pb-4 pl-10 pr-10">
+                <div class="container mx-auto px-4 py-20 text-gray-300">
+                    <!-- Title and Last Updated -->
+                    <h1 class="text-4xl font-bold mb-4 text-white">Terms of Service</h1>
+                    <p class="mb-8">Last Updated: January 3, 2025</p>
+                
+                    <!-- Introduction -->
+                    <p class="mb-6">
+                        Welcome to TikTokRescue! Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the TikTokRescue application, Chrome extension, and related services (collectively, the "Service") operated by Webally Web and Mobile Development ("us", "we", or "our").
+                    </p>
+                    <p class="mb-6">
+                        By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.
+                    </p>
+                
+                    <!-- Definitions -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Definitions:</h2>
+                    <ul class="list-disc list-inside mb-8">
+                        <li>
+                            <strong>Webally Web and Mobile Development:</strong> The company responsible for developing, maintaining, and operating the TikTokRescue service. Referred to as "we," "us," or "our" in these documents.
+                        </li>
+                        <li>
+                            <strong>TikTokRescue:</strong> The application and Chrome extension provided by Webally Web and Mobile Development, designed to help TikTok users download, preserve, and transfer their content.
+                        </li>
+                    </ul>
+                
+                    <!-- Section 1 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">1. Acceptance of Terms</h2>
+                    <p class="mb-6">
+                        By downloading, installing, or using TikTokRescue, you agree to comply with and be legally bound by these Terms and Conditions. These Terms apply to all users of the Service, including without limitation users who are browsers, vendors, customers, merchants, and contributors of content.
+                    </p>
+                
+                    <!-- Section 2 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">2. Use of the Service</h2>
+                    
+                    <!-- Subsection: Eligibility -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Eligibility:</h3>
+                    <p class="mb-4">
+                        You must be at least 13 years old to use the Service. By using the Service, you represent and warrant that you meet this age requirement.
+                    </p>
+                
+                    <!-- Subsection: License -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">License:</h3>
+                    <p class="mb-4">
+                        We grant you a limited, non-exclusive, non-transferable, revocable license to use the Service strictly in accordance with these Terms.
+                    </p>
+                
+                    <!-- Subsection: Permitted Uses -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Permitted Uses:</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li>Downloading TikTok content in bulk or individually.</li>
+                        <li>Transferring videos directly to YouTube or downloading them to your home computer’s drive.</li>
+                        <li>Migrating content to other platforms like Instagram.</li>
+                        <li>Accessing and downloading older or archived TikTok content.</li>
+                    </ul>
+                
+                    <!-- Subsection: Prohibited Uses -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Prohibited Uses:</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li>Using the Service for any unlawful purpose or in violation of any local, state, national, or international law.</li>
+                        <li>Attempting to interfere with or disrupt the integrity or performance of the Service.</li>
+                        <li>Reverse engineering, decompiling, or disassembling the Service.</li>
+                    </ul>
+                
+                    <!-- Subsection: Compliance with Third-Party Platforms -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Compliance with Third-Party Platforms:</h3>
+                    <p class="mb-6">
+                        When using the Service to transfer or migrate content to third-party platforms such as YouTube, Instagram, or others, you are responsible for complying with all applicable terms, policies, and regulations of those platforms. Webally Web and Mobile Development does not assume any responsibility for your adherence to TikTok’s, YouTube’s, Instagram’s, or any other third-party platform’s rules and guidelines. It is your responsibility to ensure that your use of the Service and any content transferred complies with the respective platform’s terms of service and community guidelines.
+                    </p>
+                
+                    <!-- Section 3 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">3. Affiliate Program</h2>
+                    
+                    <!-- Subsection: Participation -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Participation:</h3>
+                    <p class="mb-4">
+                        By joining our affiliate program, you agree to promote TikTokRescue in accordance with these Terms and any additional guidelines provided.
+                    </p>
+                
+                    <!-- Subsection: Commissions -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Commissions:</h3>
+                    <p class="mb-4">
+                        Affiliates will earn a 30% commission for every valid referral that results in a purchase of the Service.
+                    </p>
+                
+                    <!-- Subsection: Eligibility -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Eligibility:</h3>
+                    <p class="mb-4">
+                        Affiliates must provide accurate and complete information during registration and maintain their account in good standing.
+                    </p>
+                
+                    <!-- Subsection: Termination -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Termination:</h3>
+                    <p class="mb-6">
+                        We reserve the right to terminate your participation in the affiliate program at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users or us.
+                    </p>
+                
+                    <!-- Section 4 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">4. Payment and Refunds</h2>
+                    
+                    <!-- Subsection: Pricing -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Pricing:</h3>
+                    <p class="mb-4">
+                        The Service is available for a one-time payment of $4.99 with no hidden costs.
+                    </p>
+                
+                    <!-- Subsection: Refund Policy -->
+                    <h3 class="text-xl font-semibold mb-2 text-white">Refund Policy:</h3>
+                    <p class="mb-6">
+                        Due to the nature of the Service, all sales are final. We do not offer refunds once the purchase is completed.
+                    </p>
+                
+                    <!-- Section 5 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">5. Intellectual Property</h2>
+                    <p class="mb-6">
+                        All content, features, and functionality of the Service, including but not limited to information, software, text, displays, images, and logos, are the exclusive property of Webally Web and Mobile Development or its licensors and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
+                    </p>
+                
+                    <!-- Section 6 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">6. Disclaimer of Warranties</h2>
+                    <p class="mb-4">
+                        The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Webally Web and Mobile Development makes no representations or warranties of any kind, express or implied, regarding the operation or availability of the Service, or the information, content, or materials included therein.
+                    </p>
+                    <p class="mb-6">
+                        To the fullest extent permitted by applicable law, we disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose.
+                    </p>
+                
+                    <!-- Section 7 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">7. Limitation of Liability</h2>
+                    <p class="mb-4">
+                        In no event shall Webally Web and Mobile Development, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li>Your use or inability to use the Service.</li>
+                        <li>Any unauthorized access to or use of our servers and/or any personal information stored therein.</li>
+                        <li>Any bugs, viruses, trojan horses, or the like that may be transmitted to or through our Service by any third party.</li>
+                        <li>Any errors or omissions in any content or for any loss or damage incurred as a result of the use of any content posted, emailed, transmitted, or otherwise made available through the Service.</li>
+                    </ul>
+                
+                    <!-- Section 8 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">8. Indemnification</h2>
+                    <p class="mb-4">
+                        You agree to defend, indemnify, and hold harmless Webally Web and Mobile Development and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:
+                    </p>
+                    <ul class="list-disc list-inside mb-6">
+                        <li>Your use of and access to the Service.</li>
+                        <li>Your violation of any term of these Terms.</li>
+                        <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right.</li>
+                        <li>Any claim that your use of the Service caused damage to a third party.</li>
+                    </ul>
+                
+                    <!-- Section 9 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">9. Termination</h2>
+                    <p class="mb-6">
+                        We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever, including without limitation if you breach the Terms.
+                    </p>
+                
+                    <!-- Section 10 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">10. Governing Law</h2>
+                    <p class="mb-6">
+                        These Terms shall be governed and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+                    </p>
+                
+                    <!-- Section 11 -->
+                    <h2 class="text-2xl font-semibold mb-4 text-white">11. Changes to the Terms</h2>
+                    <p class="mb-4">
+                        We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+                    </p>
+                    <p class="mb-6">
+                        By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.
+                    </p>
+                </div>
+                
+            </main>
+        </div>
     </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Footer Inclusion Script -->
+    <script>
+        // Function to load external HTML files
+        function loadHTML(elementId, url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading ' + url + ':', error);
+                });
+        }
+
+        // Load header and footer on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHTML('header-placeholder', 'header.html');
+            loadHTML('footer-placeholder', 'footer.html');
+        });
+    </script>
 </body>
 </html>
