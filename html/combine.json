@@ -18,11 +18,13 @@
         "app/components/MarkdownViewer.js",
         "docs/spec.md",
         "README.md",
-        "app/admin/AdminDashboard.jsx"
+        "app/admin/AdminDashboard.jsx",
+        "vendor"
     ],
     "file_types": [
         ".html",
         ".css",
-        ".js"
+        ".js",
+        ".php"
     ]
 }
